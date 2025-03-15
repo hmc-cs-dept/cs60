@@ -639,4 +639,3 @@ public class TableTester {
         assertEquals("Bye everyone!", salutation);
     }
 }
-!
