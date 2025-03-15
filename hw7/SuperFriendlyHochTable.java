@@ -100,7 +100,7 @@ public class SuperFriendlyHochTable {
 
         String thanks = "";
         if (this.numPeople > 1) {
-            String oldNames = this.people.subList(0, people.size() - 1).toString();
+            String oldNames = this.people.subList(0, this.people.size() - 1).toString();
             oldNames = oldNames.substring(1, oldNames.length() - 1); // strip square brackets
             thanks = "Thanks " + oldNames + "!!!!!";
         }
