@@ -284,7 +284,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 		// TODO: remove(key) requires remove(key, root) to be implemented
 		ValueType value = get(key);
 		if (value != null) { // only try to remove keys that are in the tree
-			myRoot = remove((KeyType) key, myRoot);
+			this.myRoot = remove((KeyType) key, this.myRoot);
 		}
 		return value;
 	}
