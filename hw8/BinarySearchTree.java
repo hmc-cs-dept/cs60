@@ -12,13 +12,13 @@ import java.util.Set;
  */
 public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> implements Map<KeyType, ValueType> {
 
-	private BSTNode root;
+	private BSTNode myRoot;
 
 	/**
 	 * Constructs an empty binary search tree
 	 */
 	public BinarySearchTree() {
-		root = null;
+		this.myRoot = null;
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 * @return true if this collection contains no elements
 	 */
 	public boolean isEmpty() {
-		return root == null;
+		return this.myRoot == null;
 	}
 
 	/**
@@ -74,12 +74,12 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	@Override
 	public int size() {
 		// TODO: revise size() to return the private instance variable size
-		return size(root);
+		return size(this.myRoot);
 	}
 
 	/**
+	 * @param root - a BSTNode representing the root of a (sub)tree
 	 * Returns the number of key-value mappings for the subtree rooted at root.
-	 * 
 	 * @return the number of key-value mappings in the map rooted at root.
 	 */
 	private int size(BSTNode root) {
@@ -100,13 +100,13 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 * @return the height of this tree
 	 */
 	public int height() {
-		return height(root);
+		return height(this.myRoot);
 	}
 
 	/**
 	 * Returns the height in a subtree.
 	 * 
-	 * @param root - root of the tree
+	 * @param root - a BSTNode representing the root of a (sub)tree
 	 * @return the height of the tree rooted at root
 	 */
 	private int height(BSTNode root) {
@@ -149,14 +149,14 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	@Override
 	@SuppressWarnings("unchecked")
 	public ValueType get(Object key) {
-		return get((KeyType) key, root);
+		return get((KeyType) key, this.myRoot);
 	}
 
 	/**
 	 * Returns the value to which the specified key is mapped in a subtree.
 	 * 
 	 * @param key  - key whose associated value is to be returned
-	 * @param root - root of the tree to search
+	 * @param root - root of the (sub)tree to search
 	 * @return the value to which the specified key is mapped, or null if this map
 	 *         contains no mapping for the key
 	 */
@@ -178,7 +178,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 			return get(key, root.left);
 		}
 
-		// rootKey < key: search the right subtree
+		// key > rootKey: search the right subtree
 		return get(key, root.right);
 	}
 
@@ -190,7 +190,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 */
 	public KeyType getMinKey() {
 		// TODO: getMinKey() requires getMinKey(root) to be implemented
-		return getMinKey(root);
+		return getMinKey(this.myRoot);
 	}
 
 	/**
@@ -215,7 +215,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 */
 	@Override
 	public void clear() {
-		root = null;
+		this.myRoot = null;
 	}
 
 	/**
@@ -224,7 +224,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	@Override
 	public ValueType put(KeyType key, ValueType value) {
 		ValueType oldValue = get(key);
-		root = put(key, value, root);
+		this.myRoot = put(key, value, this.myRoot);
 		return oldValue;
 	}
 
@@ -284,7 +284,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 		// TODO: remove(key) requires remove(key, root) to be implemented
 		ValueType value = get(key);
 		if (value != null) { // only try to remove keys that are in the tree
-			root = remove((KeyType) key, root);
+			myRoot = remove((KeyType) key, myRoot);
 		}
 		return value;
 	}
@@ -310,7 +310,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 	 * Prints an indented tree structure of this tree.
 	 */
 	public void printTreeStructure() {
-		printTreeStructure(root, 0);
+		printTreeStructure(this.myRoot, 0);
 	}
 
 	/**
@@ -366,7 +366,7 @@ public class BinarySearchTree<KeyType extends Comparable<KeyType>, ValueType> im
 		// TODO: getAllKeysInOrder() requires addKeysToArrayList(keys, root) to be
 		// implemented
 		ArrayList<KeyType> keys = new ArrayList<KeyType>();
-		addKeysToArrayList(keys, root);
+		addKeysToArrayList(keys, this.myRoot);
 		return keys;
 	}
 
