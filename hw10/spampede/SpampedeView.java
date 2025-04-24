@@ -69,7 +69,7 @@ class SpampedeView {
 		this.width = width;
 
 		// Initialize the frame
-        frame = new JFrame("Spampede Game");
+        frame = new JFrame("Spampedies Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
@@ -81,7 +81,7 @@ class SpampedeView {
         // Set up the (off-screen) buffer for drawing, named image
         //image = createImage(Preferences.GAMEBOARDWIDTH, Preferences.GAMEBOARDHEIGHT); 
 		image = new BufferedImage(Preferences.GAMEBOARDWIDTH, Preferences.GAMEBOARDHEIGHT, BufferedImage.TYPE_INT_RGB); 
-        screen = image.getGraphics(); // screen holds the drawing routines
+		screen = image.getGraphics(); // screen holds the drawing routines
 		panel = new SpampedeImagePanel(image);
 
         // Add a central panel which holds the buffer (the game board)
@@ -152,10 +152,10 @@ class SpampedeView {
 
 	private void initializeImage() {
 		try {
-			File spamFile = new File("Spam.gif").getAbsoluteFile();
+			File spamFile = new File("media/spam.gif").getAbsoluteFile();
             imageSpam = new ImageIcon(spamFile.toString()).getImage(); 
         } catch (Exception e) {
-           	System.out.println("Problem loading image!");
+           	System.out.println("Problem loading image media/spam.gif!");
             imageSpam = null; 
         } 
 	}

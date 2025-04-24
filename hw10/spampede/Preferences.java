@@ -43,7 +43,7 @@ final class Preferences {
 	/* -------------------- */
 	public static final int TITLE_X = 100;
 	public static final int TITLE_Y = 40;
-	public static final Font TITLE_FONT = new Font("Helvetica", Font.PLAIN, 30);
+	public static final Font TITLE_FONT = new Font("Arial", Font.PLAIN, 30);
 	public static final Color TITLE_COLOR = Color.BLUE;
 	/* HW10 Part 1  */
 	public static final String TITLE = "Add Title for Part 1"; 
@@ -53,7 +53,7 @@ final class Preferences {
 	/* ------------------------ */
 	public static final int GAME_OVER_X = 150;
 	public static final int GAME_OVER_Y = 200;
-	public static final Font GAME_OVER_FONT = new Font("Helvetica", Font.PLAIN, 60);
+	public static final Font GAME_OVER_FONT = new Font("Arial", Font.BOLD, 60);
 	public static final Color GAME_OVER_COLOR = Color.BLUE;
 	public static final String GAME_OVER_TEXT = "Game Over";
 

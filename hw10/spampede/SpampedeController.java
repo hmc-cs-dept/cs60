@@ -2,8 +2,11 @@ package com.gradescope.spampede;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.sound.sampled.AudioInputStream;
 import java.io.File;
+import java.io.IOException;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -40,22 +43,40 @@ public class SpampedeController extends JPanel implements ActionListener, KeyLis
 	private static final char AI_MODE = 'a';
 	private static final char PLAY_SPAM_NOISE = 's';
 	
+
+	/**
+	 * Helper function for loading audio clips. Returns null if unable to load clip. 
+	 */
+	private AudioInputStream loadClip(String fileString) {
+		
+		try {
+			File audioFile = new File(fileString).getAbsoluteFile();
+			return AudioSystem.getAudioInputStream(audioFile);
+		} catch (NullPointerException e) {
+			System.out.println("Problem loading audio " + fileString + " : file is Null");
+		} catch (UnsupportedAudioFileException e) {
+			System.out.println("Problem loading audio " + fileString + " : this audio file data is not recognized/supported; it may need to be reencoded");
+		} catch (IOException e) {
+			System.out.println("Problem loading audio " + fileString + " : an IOException has occured; check the file name and path!");
+		} catch (Exception e) {
+			System.out.println("Unknown problem loading audio from " + fileString );
+		}
+
+		return null;
+	}
+    
+
+
 	/**
 	 * Constructor for the controller
 	 */
 	public SpampedeController() {
-        // Loading audio
-        try {
-			File spamFile = new File("Spam.au").getAbsoluteFile();
-			File crunchFile = new File("crunch.wav").getAbsoluteFile();
-			audioSpam = AudioSystem.getAudioInputStream(spamFile);
-			audioCrunch = AudioSystem.getAudioInputStream(crunchFile);
-        } catch (Exception e) {
-           System.out.println("Problem loading audio!");
-            audioSpam = null;
-            audioCrunch = null;
-        }
+        
+		// Loading audio using the helper function loadClip
+		audioSpam = loadClip("media/spam.wav");
+		audioCrunch = loadClip("media/crunch.wav");
 
+		// Initialize the view and start the game 
 		view = new SpampedeView(this, null,  Preferences.GAMEBOARDWIDTH, 600);
         startNewGame(); // Set up the game internals!
     }
@@ -197,12 +218,12 @@ public class SpampedeController extends JPanel implements ActionListener, KeyLis
 
 	/** Plays crunch noise. */
 	public void playSound_spamEaten() {
-		playSound("crunch.wav");
+		playSound("media/crunch.wav");
 	}
 
 	/** Plays spam noise. */
 	public void playSound_spam() {
-	 	playSound("Spam.au");
+	 	playSound("media/spam.wav");
 	}
 
 	public void playSound(AudioInputStream sound) {
