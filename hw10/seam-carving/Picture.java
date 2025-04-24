@@ -35,6 +35,7 @@ public class Picture extends SimplePicture {
         public static final int FORWARD_DIAGONAL = 3;
         public static final int BACKWARD_DIAGONAL = 4;
 
+
         //////////////////////////// Constructors /////////////////////////////////
 
         /**
@@ -85,7 +86,7 @@ public class Picture extends SimplePicture {
                 super(pictureToCopy);
         }
 
-        /////////////////////////////// Methods ///////////////////////////////////
+        /////////////////////////////// Picture Class Methods ///////////////////////////////////
 
         //////////////////////////// Provided Methods /////////////////////////////////
 
@@ -331,9 +332,8 @@ public class Picture extends SimplePicture {
                 return average;
         }
 
-        //////////////////////////// Change Colors Menu
-        //////////////////////////// /////////////////////////////////
-
+        ////////////////// Change Colors Menu /////////////////////////////////
+    
         //////////////////////////// Negate /////////////////////////////////
 
         /**
@@ -380,8 +380,7 @@ public class Picture extends SimplePicture {
                 return null;
         }
 
-        //////////////////////////// Add[Blue,Green,Red]
-        //////////////////////////// /////////////////////////////////
+        //////////////////////////// Add[Blue,Green,Red] /////////////////////////////////
 
         /**
          * Creates an image where the blue value has been increased by amount.The range
@@ -445,8 +444,7 @@ public class Picture extends SimplePicture {
                 return null;
         }
 
-        //////////////////////////// Seam Carving Section
-        //////////////////////////// /////////////////////////////////
+        //////////////////////////// Seam Carving Menu /////////////////////////////////
 
         //////////////////////////// Luminosity /////////////////////////////////
         /**
@@ -575,8 +573,7 @@ public class Picture extends SimplePicture {
                 return null;
         }
 
-        //////////////////////////// Carving (2 methods)
-        //////////////////////////// /////////////////////////////////
+        //////////////////////////// Carving (one or many) /////////////////////////////////
 
         /**
          * Returns a new picture, where the seam identified by calling computeSeam() is
