@@ -109,10 +109,10 @@ public class PictureTest_ColorChange {
          * Tests the color changing a solid color: addRed
          */
         @Test
-        public void testColorTranslationsReder() {
+        public void testColorTranslationsRedder() {
                 Picture pic = Picture.loadPicture("images/Gray.bmp");
-                Picture reder = Picture.loadPicture("images/Gray_more_red.bmp");
-                assertTrue(reder.equals(pic.addRed(30)));
+                Picture redder = Picture.loadPicture("images/Gray_more_red.bmp");
+                assertTrue(redder.equals(pic.addRed(30)));
 
         }
 
